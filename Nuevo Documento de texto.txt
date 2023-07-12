@@ -5,5 +5,39 @@ git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/gustavo1512/prueba.git
+git remote add origin https://github.com/gustavo1512/sireho.git
 git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/gustavo1512/sireho.git
+git branch -M main
+git push -u origin main
+https://rogerdudler.github.io/git-guide/index.es.html
+
+Entorno de desarrollo
+
+Java 
+java 17.0.7 2023-04-18 LTS
+Java(TM) SE Runtime Environment (build 17.0.7+8-LTS-224)
+
+Node 
+v18.16.1
+
+Git
+git version 2.41.0.windows.2
+
+
+Iniciar servidor
+ejecutar los comandos desde cmd dentro de la carpeta servidor
+--instalacion dependencias
+npm install 
+--ejecusion del programa
+./mvnw 
+
+
+Iniciar cliente
+ejecutar los comandos desde cmd dentro de la carpeta cliente
+--instalacion dependencias
+npm install 
+--ejecusion del programa
+npm start 
