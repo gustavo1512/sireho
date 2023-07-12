@@ -15,7 +15,9 @@ git push -u origin main
 https://rogerdudler.github.io/git-guide/index.es.html
 
 Para guardar cambios
-git add .
+git commit -m "first commit"
+git branch -M main
+git push -u origin main
 
 Entorno de desarrollo
 
