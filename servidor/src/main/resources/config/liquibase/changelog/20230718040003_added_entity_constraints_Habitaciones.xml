@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Habitaciones.
+    -->
+    <changeSet id="20230718040003-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="factura_habitaciones_id"
+                                 baseTableName="habitaciones"
+                                 constraintName="fk_habitaciones__factura_habitaciones_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="factura"
+                                 />
+    </changeSet>
+</databaseChangeLog>

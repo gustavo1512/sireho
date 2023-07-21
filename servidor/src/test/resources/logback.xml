@@ -4,7 +4,7 @@
 <configuration scan="true">
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
-    <logger name="com.mycompany.myapp" level="INFO"/>
+    <logger name="com.myapp" level="INFO"/>
 
     <logger name="tech.jhipster" level="WARN"/>
 
@@ -33,7 +33,6 @@
     <logger name="org.synchronoss" level="WARN"/>
     <logger name="org.thymeleaf" level="WARN"/>
     <logger name="org.xnio" level="WARN"/>
-    <logger name="com.microsoft.sqlserver.jdbc.internals" level="WARN"/>
     <logger name="reactor" level="WARN"/>
     <logger name="io.swagger.v3" level="INFO"/>
     <logger name="sun.rmi" level="WARN"/>

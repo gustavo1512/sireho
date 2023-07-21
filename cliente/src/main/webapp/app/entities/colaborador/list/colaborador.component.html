@@ -1,0 +1,127 @@
+<div>
+  <h2 id="page-heading" data-cy="ColaboradorHeading">
+    <span jhiTranslate="sirehoApp.colaborador.home.title">Colaboradors</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sirehoApp.colaborador.home.refreshListLabel">Refrescar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-colaborador"
+        [routerLink]="['/colaborador/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sirehoApp.colaborador.home.createLabel"> Crear nuevo Colaborador </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="colaboradors?.length === 0">
+    <span jhiTranslate="sirehoApp.colaborador.home.notFound">Ningún Colaboradors encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="colaboradors && colaboradors.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nombreColaborador">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.colaborador.nombreColaborador">Nombre Colaborador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cargo">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.colaborador.cargo">Cargo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="departamento">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.colaborador.departamento">Departamento</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numTelefono">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.colaborador.numTelefono">Num Telefono</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="correo">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.colaborador.correo">Correo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tipoCargoColaborador.id">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.colaborador.tipoCargoColaborador">Tipo Cargo Colaborador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let colaborador of colaboradors; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/colaborador', colaborador.id, 'view']">{{ colaborador.id }}</a>
+          </td>
+          <td>{{ colaborador.nombreColaborador }}</td>
+          <td>{{ colaborador.cargo }}</td>
+          <td>{{ colaborador.departamento }}</td>
+          <td>{{ colaborador.numTelefono }}</td>
+          <td>{{ colaborador.correo }}</td>
+          <td>
+            <div *ngIf="colaborador.tipoCargoColaborador">
+              <a [routerLink]="['/tipo-cargo', colaborador.tipoCargoColaborador.id, 'view']">{{ colaborador.tipoCargoColaborador.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/colaborador', colaborador.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Vista</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/colaborador', colaborador.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(colaborador)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Eliminar</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

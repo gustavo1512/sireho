@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="eventos">
+      <h2 data-cy="eventosDetailsHeading"><span jhiTranslate="sirehoApp.eventos.detail.title">Eventos</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ eventos.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.eventos.nombreEvento">Nombre Evento</span></dt>
+        <dd>
+          <span>{{ eventos.nombreEvento }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.eventos.fechaHora">Fecha Hora</span></dt>
+        <dd>
+          <span>{{ eventos.fechaHora | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.eventos.responsable">Responsable</span></dt>
+        <dd>
+          <span>{{ eventos.responsable }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.eventos.capacidad">Capacidad</span></dt>
+        <dd>
+          <span>{{ eventos.capacidad }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.eventos.participantes">Participantes</span></dt>
+        <dd>
+          <span>{{ eventos.participantes }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/eventos', eventos.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

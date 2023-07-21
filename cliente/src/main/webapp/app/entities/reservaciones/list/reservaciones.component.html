@@ -1,0 +1,143 @@
+<div>
+  <h2 id="page-heading" data-cy="ReservacionesHeading">
+    <span jhiTranslate="sirehoApp.reservaciones.home.title">Reservaciones</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sirehoApp.reservaciones.home.refreshListLabel">Refrescar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-reservaciones"
+        [routerLink]="['/reservaciones/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sirehoApp.reservaciones.home.createLabel"> Crear nuevo Reservaciones </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="reservaciones?.length === 0">
+    <span jhiTranslate="sirehoApp.reservaciones.home.notFound">Ningún Reservaciones encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="reservaciones && reservaciones.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fechaInicio">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.reservaciones.fechaInicio">Fecha Inicio</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fechaFinal">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.reservaciones.fechaFinal">Fecha Final</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="habitacionesReservaciones.id">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.reservaciones.habitacionesReservaciones">Habitaciones Reservaciones</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="clienteReservaciones.id">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.reservaciones.clienteReservaciones">Cliente Reservaciones</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="colaboradorResrvaciones.id">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.reservaciones.colaboradorResrvaciones">Colaborador Resrvaciones</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="eventosReservaciones.id">
+            <div class="d-flex">
+              <span jhiTranslate="sirehoApp.reservaciones.eventosReservaciones">Eventos Reservaciones</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservaciones of reservaciones; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/reservaciones', reservaciones.id, 'view']">{{ reservaciones.id }}</a>
+          </td>
+          <td>{{ reservaciones.fechaInicio | formatMediumDatetime }}</td>
+          <td>{{ reservaciones.fechaFinal | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="reservaciones.habitacionesReservaciones">
+              <a [routerLink]="['/habitaciones', reservaciones.habitacionesReservaciones.id, 'view']">{{
+                reservaciones.habitacionesReservaciones.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="reservaciones.clienteReservaciones">
+              <a [routerLink]="['/cliente', reservaciones.clienteReservaciones.id, 'view']">{{ reservaciones.clienteReservaciones.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="reservaciones.colaboradorResrvaciones">
+              <a [routerLink]="['/colaborador', reservaciones.colaboradorResrvaciones.id, 'view']">{{
+                reservaciones.colaboradorResrvaciones.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="reservaciones.eventosReservaciones">
+              <a [routerLink]="['/eventos', reservaciones.eventosReservaciones.id, 'view']">{{ reservaciones.eventosReservaciones.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/reservaciones', reservaciones.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Vista</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/reservaciones', reservaciones.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(reservaciones)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Eliminar</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

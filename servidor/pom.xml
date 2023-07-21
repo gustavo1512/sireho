@@ -3,12 +3,12 @@
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mycompany.myapp</groupId>
-    <artifactId>servidor</artifactId>
+    <groupId>com.myapp</groupId>
+    <artifactId>sireho</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Servidor</name>
-    <description>Description for Servidor</description>
+    <name>Sireho</name>
+    <description>Description for Sireho</description>
 
     <properties>
         <!--
@@ -22,7 +22,7 @@
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <start-class>com.mycompany.myapp.ServidorApp</start-class>
+        <start-class>com.myapp.SirehoApp</start-class>
         <argLine>-Djava.security.egd=file:/dev/./urandom -Xmx1G</argLine>
         <m2e.apt.activation>jdt_apt</m2e.apt.activation>
         <run.addResources>false</run.addResources>
@@ -256,7 +256,7 @@
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
-            <artifactId>mssqlserver</artifactId>
+            <artifactId>mysql</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -362,7 +362,7 @@
                             </platforms>
                         </from>
                         <to>
-                            <image>servidor:latest</image>
+                            <image>sireho:latest</image>
                         </to>
                         <container>
                             <entrypoint>
@@ -788,8 +788,8 @@
                 <profile.test>testdev</profile.test>
                 <liquibase-plugin.hibernate-dialect>org.hibernate.dialect.H2Dialect</liquibase-plugin.hibernate-dialect>
                 <liquibase-plugin.driver>org.h2.Driver</liquibase-plugin.driver>
-                <liquibase-plugin.url>jdbc:h2:file:${project.build.directory}/h2db/db/servidor</liquibase-plugin.url>
-                <liquibase-plugin.username>servidor</liquibase-plugin.username>
+                <liquibase-plugin.url>jdbc:h2:file:${project.build.directory}/h2db/db/sireho</liquibase-plugin.url>
+                <liquibase-plugin.username>sireho</liquibase-plugin.username>
                 <liquibase-plugin.password/>
             </properties>
             <dependencies>
@@ -814,7 +814,7 @@
                         <artifactId>maven-compiler-plugin</artifactId>
                         <configuration>
                             <testExcludes>
-                                <testExclude>com/mycompany/myapp/config/MsSqlTestContainer.java</testExclude>
+                                <testExclude>com/myapp/config/MysqlTestContainer.java</testExclude>
                             </testExcludes>
                         </configuration>
                     </plugin>
@@ -899,11 +899,11 @@
                 <!-- default Spring profiles -->
                 <spring.profiles.active>prod${profile.api-docs}${profile.tls}${profile.e2e}${profile.no-liquibase}</spring.profiles.active>
                 <profile.test>testprod</profile.test>
-                <liquibase-plugin.hibernate-dialect>org.hibernate.dialect.SQLServer2012Dialect</liquibase-plugin.hibernate-dialect>
-                <liquibase-plugin.driver/>
-                <liquibase-plugin.url>jdbc:sqlserver://localhost:1433;database=servidor</liquibase-plugin.url>
-                <liquibase-plugin.username>SA</liquibase-plugin.username>
-                <liquibase-plugin.password>yourStrong(!)Password</liquibase-plugin.password>
+                <liquibase-plugin.hibernate-dialect>org.hibernate.dialect.MySQL8Dialect</liquibase-plugin.hibernate-dialect>
+                <liquibase-plugin.driver>com.mysql.cj.jdbc.Driver</liquibase-plugin.driver>
+                <liquibase-plugin.url>jdbc:mysql://localhost:3306/sireho</liquibase-plugin.url>
+                <liquibase-plugin.username>root</liquibase-plugin.username>
+                <liquibase-plugin.password/>
             </properties>
             <build>
                 <plugins>
@@ -937,17 +937,13 @@
             </build>
             <dependencies>
                 <dependency>
-                    <groupId>com.microsoft.sqlserver</groupId>
-                    <artifactId>mssql-jdbc</artifactId>
+                    <groupId>com.mysql</groupId>
+                    <artifactId>mysql-connector-j</artifactId>
                 </dependency>
                 <dependency>
-                    <groupId>io.r2dbc</groupId>
-                    <artifactId>r2dbc-mssql</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.liquibase.ext</groupId>
-                    <artifactId>liquibase-mssql</artifactId>
-                    <version>${liquibase.version}</version>
+                    <groupId>io.asyncer</groupId>
+                    <artifactId>r2dbc-mysql</artifactId>
+                    <version>1.0.2</version>
                 </dependency>
             </dependencies>
         </profile>

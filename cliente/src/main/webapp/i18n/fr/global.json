@@ -1,12 +1,19 @@
 {
   "global": {
-    "title": "Cliente",
+    "title": "Sireho",
     "browsehappy": "Vous utilisez un <strong>ancien</strong> navigateur. Veuillez <a href=\"http://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour une meilleure expérience.",
     "menu": {
       "home": "Accueil",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "cliente": "Cliente",
+        "habitaciones": "Habitaciones",
+        "reservaciones": "Reservaciones",
+        "factura": "Factura",
+        "eventos": "Eventos",
+        "colaborador": "Colaborador",
+        "tipoCargo": "Tipo Cargo",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

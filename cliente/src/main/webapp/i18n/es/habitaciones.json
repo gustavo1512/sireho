@@ -1,0 +1,28 @@
+{
+  "sirehoApp": {
+    "habitaciones": {
+      "home": {
+        "title": "Habitaciones",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Habitaciones",
+        "createOrEditLabel": "Crear o editar Habitaciones",
+        "notFound": "Ningún Habitaciones encontrado"
+      },
+      "created": "Un nuevo Habitaciones ha sido creado con el identificador {{ param }}",
+      "updated": "Un Habitaciones ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Habitaciones ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Habitaciones {{ id }}?"
+      },
+      "detail": {
+        "title": "Habitaciones"
+      },
+      "id": "ID",
+      "tipo": "Tipo",
+      "piso": "Piso",
+      "disponible": "Disponible",
+      "facturaHabitaciones": "Factura Habitaciones",
+      "reservaciones": "Reservaciones"
+    }
+  }
+}

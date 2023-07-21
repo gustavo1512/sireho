@@ -1,0 +1,30 @@
+{
+  "sirehoApp": {
+    "colaborador": {
+      "home": {
+        "title": "Colaboradors",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Colaborador",
+        "createOrEditLabel": "Créer ou éditer un Colaborador",
+        "notFound": "Aucun Colaborador trouvé"
+      },
+      "created": "Un nouveau Colaborador a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Colaborador avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Colaborador avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Colaborador {{ id }} ?"
+      },
+      "detail": {
+        "title": "Colaborador"
+      },
+      "id": "ID",
+      "nombreColaborador": "Nombre Colaborador",
+      "cargo": "Cargo",
+      "departamento": "Departamento",
+      "numTelefono": "Num Telefono",
+      "correo": "Correo",
+      "reservaciones": "Reservaciones",
+      "tipoCargoColaborador": "Tipo Cargo Colaborador"
+    }
+  }
+}

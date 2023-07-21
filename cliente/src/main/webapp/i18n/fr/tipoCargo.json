@@ -1,0 +1,25 @@
+{
+  "sirehoApp": {
+    "tipoCargo": {
+      "home": {
+        "title": "TipoCargos",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Tipo Cargo",
+        "createOrEditLabel": "Créer ou éditer un Tipo Cargo",
+        "notFound": "Aucun Tipo Cargo trouvé"
+      },
+      "created": "Un nouveau Tipo Cargo a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tipo Cargo avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tipo Cargo avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Tipo Cargo {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tipo Cargo"
+      },
+      "id": "ID",
+      "nombreCargo": "Nombre Cargo",
+      "colaborador": "Colaborador"
+    }
+  }
+}

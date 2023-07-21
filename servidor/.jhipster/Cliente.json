@@ -1,0 +1,38 @@
+{
+  "applications": ["sireho"],
+  "changelogDate": "20230718040002",
+  "entityTableName": "cliente",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "apellido",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "correo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Cliente",
+  "relationships": [
+    {
+      "otherEntityName": "reservaciones",
+      "otherEntityRelationshipName": "clienteReservaciones",
+      "relationshipName": "reservaciones",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

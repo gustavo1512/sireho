@@ -5,19 +5,29 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
     <property name="now" value="now()" dbms="h2"/>
     <property name="floatType" value="float4" dbms="h2"/>
-    <property name="uuidType" value="uuid" dbms="h2"/>
+    <property name="uuidType" value="varchar(36)" dbms="h2"/>
     <property name="datetimeType" value="datetime" dbms="h2"/>
     <property name="clobType" value="clob" dbms="h2"/>
     <property name="blobType" value="blob" dbms="h2"/>
-    <property name="now" value="GETDATE()" dbms="mssql"/>
-    <property name="floatType" value="float" dbms="mssql"/>
-    <property name="clobType" value="clob" dbms="mssql"/>
-    <property name="blobType" value="blob" dbms="mssql"/>
-    <property name="uuidType" value="uuid" dbms="mssql"/>
-    <property name="datetimeType" value="datetime" dbms="mssql"/>
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="floatType" value="float" dbms="mysql"/>
+    <property name="clobType" value="clob" dbms="mysql"/>
+    <property name="blobType" value="longblob" dbms="mysql"/>
+    <property name="uuidType" value="varchar(36)" dbms="mysql"/>
+    <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230718040002_added_entity_Cliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230718040003_added_entity_Habitaciones.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230718040004_added_entity_Reservaciones.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230718040005_added_entity_Factura.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230718040006_added_entity_Eventos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230718040007_added_entity_Colaborador.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230718040008_added_entity_TipoCargo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20230718040003_added_entity_constraints_Habitaciones.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230718040004_added_entity_constraints_Reservaciones.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230718040007_added_entity_constraints_Colaborador.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-habitaciones-heading"
+        data-cy="HabitacionesCreateUpdateHeading"
+        jhiTranslate="sirehoApp.habitaciones.home.createOrEditLabel"
+      >
+        Crear o editar Habitaciones
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="sirehoApp.habitaciones.tipo" for="field_tipo">Tipo</label>
+          <input type="text" class="form-control" name="tipo" id="field_tipo" data-cy="tipo" formControlName="tipo" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="sirehoApp.habitaciones.piso" for="field_piso">Piso</label>
+          <input type="number" class="form-control" name="piso" id="field_piso" data-cy="piso" formControlName="piso" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="sirehoApp.habitaciones.disponible" for="field_disponible">Disponible</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="disponible"
+            id="field_disponible"
+            data-cy="disponible"
+            formControlName="disponible"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

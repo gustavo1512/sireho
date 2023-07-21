@@ -1,0 +1,29 @@
+{
+  "sirehoApp": {
+    "eventos": {
+      "home": {
+        "title": "Eventos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Eventos",
+        "createOrEditLabel": "Crear o editar Eventos",
+        "notFound": "Ningún Eventos encontrado"
+      },
+      "created": "Un nuevo Eventos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Eventos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Eventos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Eventos {{ id }}?"
+      },
+      "detail": {
+        "title": "Eventos"
+      },
+      "id": "ID",
+      "nombreEvento": "Nombre Evento",
+      "fechaHora": "Fecha Hora",
+      "responsable": "Responsable",
+      "capacidad": "Capacidad",
+      "participantes": "Participantes",
+      "reservaciones": "Reservaciones"
+    }
+  }
+}

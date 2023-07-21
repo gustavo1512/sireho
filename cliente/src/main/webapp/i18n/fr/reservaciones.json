@@ -1,0 +1,29 @@
+{
+  "sirehoApp": {
+    "reservaciones": {
+      "home": {
+        "title": "Reservaciones",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Reservaciones",
+        "createOrEditLabel": "Créer ou éditer un Reservaciones",
+        "notFound": "Aucun Reservaciones trouvé"
+      },
+      "created": "Un nouveau Reservaciones a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Reservaciones avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Reservaciones avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Reservaciones {{ id }} ?"
+      },
+      "detail": {
+        "title": "Reservaciones"
+      },
+      "id": "ID",
+      "fechaInicio": "Fecha Inicio",
+      "fechaFinal": "Fecha Final",
+      "habitacionesReservaciones": "Habitaciones Reservaciones",
+      "clienteReservaciones": "Cliente Reservaciones",
+      "colaboradorResrvaciones": "Colaborador Resrvaciones",
+      "eventosReservaciones": "Eventos Reservaciones"
+    }
+  }
+}

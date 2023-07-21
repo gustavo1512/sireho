@@ -1,47 +1,28 @@
- <!-- Masthead-->
- <header class="masthead">
-  <div class="container">
-      <div class="masthead-subheading">Bienvenido a SIREHO</div>
-      <div class="masthead-heading text-uppercase">Visita nuestro hotel</div>
-      <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
-  </div>
+   <!-- Masthead-->
+   <header class="masthead">
+    <div class="container">
+
+      <div [ngSwitch]="account !== null">
+        <div class="masthead-subheading">Bienvenido a SIREHO</div>
+        <div class="masthead-heading text-uppercase">Visita nuestro hotel</div>
+
+        <div class="alert alert-success" *ngSwitchCase="true">
+          <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message" [translateValues]="{ username: account.login }"
+            >Está conectado como "{{ account.login }}".</span>
+        </div>
+  
+        <div  *ngSwitchCase="false">
+          <a class="btn btn-primary btn-xl text-uppercase" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">Iniciar sesión</a>
+        </div>
+  
+        <div class="portfolio-item" *ngSwitchCase="false">
+          <span jhiTranslate="global.messages.info.register.noaccount">¿Aún no tienes una cuenta?</span>&nbsp;
+          <a class="alert-link" routerLink="/account/register" jhiTranslate="global.messages.info.register.link">Crea una</a>
+
+        </div>
+      </div>
+    </div>
 </header>
-<!-- Services-->
-<section class="page-section" id="services">
-  <div class="container">
-      <div class="text-center">
-          <h2 class="section-heading text-uppercase">Services</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-      </div>
-      <div class="row text-center">
-          <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                  <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                  <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-              </span>
-              <h4 class="my-3">E-Commerce</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                  <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                  <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-              </span>
-              <h4 class="my-3">Responsive Design</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                  <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                  <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-              </span>
-              <h4 class="my-3">Web Security</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-      </div>
-  </div>
-</section>
-<!-- Portfolio Grid-->
 <section class="page-section bg-light" id="portfolio">
   <div class="container">
       <div class="text-center">
@@ -331,35 +312,3 @@
       </form>
   </div>
 </section>
-
-<div class="row">
-  <div class="col-md-3">
-    <span class="hipster img-fluid rounded"></span>
-  </div>
-
-  <div class="col-md-9">
-    <h1 class="display-4"><span jhiTranslate="home.title">¡Bienvenido(a) a SIREHO</span></h1>
-
-    <p class="lead" jhiTranslate="home.subtitle">Haga su reservación</p>
-
-    <div [ngSwitch]="account !== null">
-      <div class="alert alert-success" *ngSwitchCase="true">
-        <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message" [translateValues]="{ username: account.login }"
-          >Está conectado como "{{ account.login }}".</span
-        >
-      </div>
-
-      <div class="alert alert-warning" *ngSwitchCase="false">
-        <span jhiTranslate="global.messages.info.authenticated.prefix">Si desea </span>
-        <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">Inicie sesión</a
-        ><span jhiTranslate="global.messages.info.authenticated.suffix">para una mejor experiencia</span>
-      </div>
-
-      <div class="alert alert-warning" *ngSwitchCase="false">
-        <span jhiTranslate="global.messages.info.register.noaccount">¿Aún no tienes una cuenta?</span>&nbsp;
-        <a class="alert-link" routerLink="/account/register" jhiTranslate="global.messages.info.register.link">Crea una cuenta</a>
-      </div>
-    </div>
-
-  </div>
-</div>

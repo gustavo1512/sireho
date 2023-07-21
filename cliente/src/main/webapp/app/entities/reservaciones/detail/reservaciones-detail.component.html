@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="reservaciones">
+      <h2 data-cy="reservacionesDetailsHeading"><span jhiTranslate="sirehoApp.reservaciones.detail.title">Reservaciones</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ reservaciones.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.reservaciones.fechaInicio">Fecha Inicio</span></dt>
+        <dd>
+          <span>{{ reservaciones.fechaInicio | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.reservaciones.fechaFinal">Fecha Final</span></dt>
+        <dd>
+          <span>{{ reservaciones.fechaFinal | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.reservaciones.habitacionesReservaciones">Habitaciones Reservaciones</span></dt>
+        <dd>
+          <div *ngIf="reservaciones.habitacionesReservaciones">
+            <a [routerLink]="['/habitaciones', reservaciones.habitacionesReservaciones.id, 'view']">{{
+              reservaciones.habitacionesReservaciones.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.reservaciones.clienteReservaciones">Cliente Reservaciones</span></dt>
+        <dd>
+          <div *ngIf="reservaciones.clienteReservaciones">
+            <a [routerLink]="['/cliente', reservaciones.clienteReservaciones.id, 'view']">{{ reservaciones.clienteReservaciones.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.reservaciones.colaboradorResrvaciones">Colaborador Resrvaciones</span></dt>
+        <dd>
+          <div *ngIf="reservaciones.colaboradorResrvaciones">
+            <a [routerLink]="['/colaborador', reservaciones.colaboradorResrvaciones.id, 'view']">{{
+              reservaciones.colaboradorResrvaciones.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.reservaciones.eventosReservaciones">Eventos Reservaciones</span></dt>
+        <dd>
+          <div *ngIf="reservaciones.eventosReservaciones">
+            <a [routerLink]="['/eventos', reservaciones.eventosReservaciones.id, 'view']">{{ reservaciones.eventosReservaciones.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/reservaciones', reservaciones.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

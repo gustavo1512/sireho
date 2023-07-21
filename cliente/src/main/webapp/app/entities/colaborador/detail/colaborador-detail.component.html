@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="colaborador">
+      <h2 data-cy="colaboradorDetailsHeading"><span jhiTranslate="sirehoApp.colaborador.detail.title">Colaborador</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ colaborador.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.colaborador.nombreColaborador">Nombre Colaborador</span></dt>
+        <dd>
+          <span>{{ colaborador.nombreColaborador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.colaborador.cargo">Cargo</span></dt>
+        <dd>
+          <span>{{ colaborador.cargo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.colaborador.departamento">Departamento</span></dt>
+        <dd>
+          <span>{{ colaborador.departamento }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.colaborador.numTelefono">Num Telefono</span></dt>
+        <dd>
+          <span>{{ colaborador.numTelefono }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.colaborador.correo">Correo</span></dt>
+        <dd>
+          <span>{{ colaborador.correo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.colaborador.tipoCargoColaborador">Tipo Cargo Colaborador</span></dt>
+        <dd>
+          <div *ngIf="colaborador.tipoCargoColaborador">
+            <a [routerLink]="['/tipo-cargo', colaborador.tipoCargoColaborador.id, 'view']">{{ colaborador.tipoCargoColaborador.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/colaborador', colaborador.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

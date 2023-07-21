@@ -1,0 +1,38 @@
+{
+  "applications": ["sireho"],
+  "changelogDate": "20230718040006",
+  "entityTableName": "eventos",
+  "fields": [
+    {
+      "fieldName": "nombreEvento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaHora",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "responsable",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "capacidad",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "participantes",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "Eventos",
+  "relationships": [
+    {
+      "otherEntityName": "reservaciones",
+      "otherEntityRelationshipName": "eventosReservaciones",
+      "relationshipName": "reservaciones",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

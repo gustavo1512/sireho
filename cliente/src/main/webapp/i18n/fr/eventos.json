@@ -1,0 +1,29 @@
+{
+  "sirehoApp": {
+    "eventos": {
+      "home": {
+        "title": "Eventos",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Eventos",
+        "createOrEditLabel": "Créer ou éditer un Eventos",
+        "notFound": "Aucun Eventos trouvé"
+      },
+      "created": "Un nouveau Eventos a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Eventos avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Eventos avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Eventos {{ id }} ?"
+      },
+      "detail": {
+        "title": "Eventos"
+      },
+      "id": "ID",
+      "nombreEvento": "Nombre Evento",
+      "fechaHora": "Fecha Hora",
+      "responsable": "Responsable",
+      "capacidad": "Capacidad",
+      "participantes": "Participantes",
+      "reservaciones": "Reservaciones"
+    }
+  }
+}

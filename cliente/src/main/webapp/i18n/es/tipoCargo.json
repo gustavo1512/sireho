@@ -1,0 +1,25 @@
+{
+  "sirehoApp": {
+    "tipoCargo": {
+      "home": {
+        "title": "Tipo Cargos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Tipo Cargo",
+        "createOrEditLabel": "Crear o editar Tipo Cargo",
+        "notFound": "Ningún Tipo Cargos encontrado"
+      },
+      "created": "Un nuevo Tipo Cargo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Cargo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Cargo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Cargo {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Cargo"
+      },
+      "id": "ID",
+      "nombreCargo": "Nombre Cargo",
+      "colaborador": "Colaborador"
+    }
+  }
+}

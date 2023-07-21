@@ -1,0 +1,28 @@
+{
+  "sirehoApp": {
+    "habitaciones": {
+      "home": {
+        "title": "Habitaciones",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Habitaciones",
+        "createOrEditLabel": "Créer ou éditer un Habitaciones",
+        "notFound": "Aucun Habitaciones trouvé"
+      },
+      "created": "Un nouveau Habitaciones a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Habitaciones avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Habitaciones avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Habitaciones {{ id }} ?"
+      },
+      "detail": {
+        "title": "Habitaciones"
+      },
+      "id": "ID",
+      "tipo": "Tipo",
+      "piso": "Piso",
+      "disponible": "Disponible",
+      "facturaHabitaciones": "Factura Habitaciones",
+      "reservaciones": "Reservaciones"
+    }
+  }
+}

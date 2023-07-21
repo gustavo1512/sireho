@@ -1,4 +1,4 @@
-# cliente
+# sireho
 
 This application was generated using JHipster 8.0.0-beta.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.0.0-beta.1](https://www.jhipster.tech/documentation-archive/v8.0.0-beta.1).
 
@@ -121,7 +121,7 @@ docker compose -f src/main/docker/jhipster-control-center.yml up
 
 ### Packaging as jar
 
-To build the final jar and optimize the cliente application for production, run:
+To build the final jar and optimize the sireho application for production, run:
 
 ```
 ./mvnw -Pprod clean verify
@@ -201,16 +201,16 @@ For more information, refer to the [Code quality page][].
 
 You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
 
-For example, to start a postgresql database in a docker container, run:
+For example, to start a mysql database in a docker container, run:
 
 ```
-docker compose -f src/main/docker/postgresql.yml up -d
+docker compose -f src/main/docker/mysql.yml up -d
 ```
 
 To stop it and remove the container, run:
 
 ```
-docker compose -f src/main/docker/postgresql.yml down
+docker compose -f src/main/docker/mysql.yml down
 ```
 
 You can also fully dockerize your application and all the services that it depends on.

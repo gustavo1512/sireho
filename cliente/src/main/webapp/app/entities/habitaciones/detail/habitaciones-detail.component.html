@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="habitaciones">
+      <h2 data-cy="habitacionesDetailsHeading"><span jhiTranslate="sirehoApp.habitaciones.detail.title">Habitaciones</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ habitaciones.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.habitaciones.tipo">Tipo</span></dt>
+        <dd>
+          <span>{{ habitaciones.tipo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.habitaciones.piso">Piso</span></dt>
+        <dd>
+          <span>{{ habitaciones.piso }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.habitaciones.disponible">Disponible</span></dt>
+        <dd>
+          <span>{{ habitaciones.disponible }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/habitaciones', habitaciones.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Reservaciones.
+    -->
+    <changeSet id="20230718040004-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="habitaciones_reservaciones_id"
+                                 baseTableName="reservaciones"
+                                 constraintName="fk_reservaciones__habitaciones_reservaciones_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="habitaciones"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="cliente_reservaciones_id"
+                                 baseTableName="reservaciones"
+                                 constraintName="fk_reservaciones__cliente_reservaciones_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="colaborador_resrvaciones_id"
+                                 baseTableName="reservaciones"
+                                 constraintName="fk_reservaciones__colaborador_resrvaciones_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="colaborador"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="eventos_reservaciones_id"
+                                 baseTableName="reservaciones"
+                                 constraintName="fk_reservaciones__eventos_reservaciones_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="eventos"
+                                 />
+    </changeSet>
+</databaseChangeLog>

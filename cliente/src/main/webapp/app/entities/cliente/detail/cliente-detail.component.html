@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cliente">
+      <h2 data-cy="clienteDetailsHeading"><span jhiTranslate="sirehoApp.cliente.detail.title">Cliente</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cliente.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.cliente.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ cliente.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.cliente.apellido">Apellido</span></dt>
+        <dd>
+          <span>{{ cliente.apellido }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.cliente.direccion">Direccion</span></dt>
+        <dd>
+          <span>{{ cliente.direccion }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.cliente.correo">Correo</span></dt>
+        <dd>
+          <span>{{ cliente.correo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sirehoApp.cliente.telefono">Telefono</span></dt>
+        <dd>
+          <span>{{ cliente.telefono }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cliente', cliente.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

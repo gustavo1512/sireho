@@ -1,0 +1,71 @@
+
+application {
+  config {
+    baseName sireho,
+    applicationType monolith,
+    authenticationType jwt,
+    prodDatabaseType mysql
+  }
+  entities *
+}
+
+entity  Cliente {
+nombre String
+apellido String
+direccion String
+correo String
+telefono String
+}
+
+entity  Habitaciones {
+tipo String
+piso Long
+disponible Boolean
+}
+
+entity Reservaciones {
+fechaInicio Instant
+fechaFinal Instant 
+
+}
+
+entity Factura {
+cantidadPaga Long
+fechaPago Instant 
+metodoPgo String
+}
+
+entity Eventos {
+nombreEvento String 
+fechaHora Instant
+responsable String
+capacidad Long
+participantes Long
+}
+
+entity Colaborador {
+nombreColaborador String
+cargo String
+departamento String
+numTelefono Long
+correo String
+}
+
+entity TipoCargo {
+nombreCargo String
+
+}
+
+relationship OneToMany {
+
+  Cliente to Reservaciones{clienteReservaciones}
+  TipoCargo to Colaborador{tipoCargoColaborador}
+  Colaborador to Reservaciones{colaboradorResrvaciones}
+  Factura to Habitaciones{facturaHabitaciones}
+  Eventos to Reservaciones{eventosReservaciones}
+}
+
+relationship OneToOne {
+   Reservaciones{habitacionesReservaciones} to Habitaciones
+}
+    

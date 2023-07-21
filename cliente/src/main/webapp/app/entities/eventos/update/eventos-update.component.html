@@ -1,0 +1,90 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-eventos-heading" data-cy="EventosCreateUpdateHeading" jhiTranslate="sirehoApp.eventos.home.createOrEditLabel">
+        Crear o editar Eventos
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="sirehoApp.eventos.nombreEvento" for="field_nombreEvento">Nombre Evento</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nombreEvento"
+            id="field_nombreEvento"
+            data-cy="nombreEvento"
+            formControlName="nombreEvento"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="sirehoApp.eventos.fechaHora" for="field_fechaHora">Fecha Hora</label>
+          <div class="d-flex">
+            <input
+              id="field_fechaHora"
+              data-cy="fechaHora"
+              type="datetime-local"
+              class="form-control"
+              name="fechaHora"
+              formControlName="fechaHora"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="sirehoApp.eventos.responsable" for="field_responsable">Responsable</label>
+          <input
+            type="text"
+            class="form-control"
+            name="responsable"
+            id="field_responsable"
+            data-cy="responsable"
+            formControlName="responsable"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="sirehoApp.eventos.capacidad" for="field_capacidad">Capacidad</label>
+          <input type="number" class="form-control" name="capacidad" id="field_capacidad" data-cy="capacidad" formControlName="capacidad" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="sirehoApp.eventos.participantes" for="field_participantes">Participantes</label>
+          <input
+            type="number"
+            class="form-control"
+            name="participantes"
+            id="field_participantes"
+            data-cy="participantes"
+            formControlName="participantes"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
